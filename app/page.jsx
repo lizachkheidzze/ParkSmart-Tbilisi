@@ -1,5 +1,4 @@
 import ParkingMap from './ParkingMap';
-'use client';
 
 const parkingZones = [
   {
@@ -43,20 +42,6 @@ const parkingZones = [
     disabled: 2,
     address: 'Saburtalo, Tbilisi',
     level: 'low'
-  },
-  {
-    id: 4,
-    name: 'City Mall Saburtalo',
-    type: 'Private Parking',
-    status: 'Partner data placeholder',
-    free: 38,
-    total: 160,
-    price: 'Free / Mall Rules',
-    eta: '11 min',
-    ev: 8,
-    disabled: 5,
-    address: 'City Mall Saburtalo, Tbilisi',
-    level: 'medium'
   }
 ];
 
@@ -68,11 +53,6 @@ const tickets = [
   'Red light violation',
   'Disabled parking misuse'
 ];
-
-function openNavigation(address) {
-  const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
-}
 
 export default function HomePage() {
   return (
@@ -96,12 +76,14 @@ export default function HomePage() {
       <section className="hero">
         <div className="heroText">
           <div className="badge">Smart parking platform for Tbilisi</div>
+
           <h1>Find parking before everyone else.</h1>
+
           <p>
-            ParkSmart shows estimated free parking in Tbilisi City Hall zones and
-            private parking lots such as malls, restaurants, hotels and offices.
-            Compare prices, check EV and disabled spaces, save favourites and
-            start navigation instantly.
+            ParkSmart shows estimated free parking in Tbilisi City Hall zones
+            and private parking lots such as malls, restaurants, hotels and
+            offices. Compare prices, check EV and disabled spaces, save
+            favourites and start navigation instantly.
           </p>
 
           <div className="heroActions">
@@ -110,12 +92,15 @@ export default function HomePage() {
           </div>
         </div>
 
-       <section id="map" className="mapCard" aria-label="Real Tbilisi parking map">
-  <ParkingMap />
-</section>
+        <section id="map" className="mapCard" aria-label="Real Tbilisi parking map">
+          <ParkingMap />
+        </section>
+      </section>
 
       <section className="warning">
-        <strong>Important:</strong> Availability in City Hall zones is estimated and may not be fully accurate because not every driver registers their parking.
+        <strong>Important:</strong> Availability in City Hall zones is estimated
+        and may not be fully accurate because not every driver registers their
+        parking.
       </section>
 
       <section id="parking" className="section">
@@ -136,7 +121,8 @@ export default function HomePage() {
                   <h3>{zone.name}</h3>
                   <p className="small">{zone.status}</p>
                 </div>
-                <button className="favorite" aria-label={`Save ${zone.name}`}>☆</button>
+
+                <button className="favorite">☆</button>
               </div>
 
               <div className="stats">
@@ -164,9 +150,13 @@ export default function HomePage() {
                 <p>{zone.address}</p>
               </div>
 
-              <button className="cardButton" onClick={() => openNavigation(zone.address)}>
+              <a
+                className="cardButton"
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(zone.address)}`}
+                target="_blank"
+              >
                 Navigate
-              </button>
+              </a>
             </article>
           ))}
         </div>
@@ -214,6 +204,7 @@ export default function HomePage() {
           <strong>ParkSmart</strong>
           <p>Smart parking for Tbilisi.</p>
         </div>
+
         <p>Website + web app prototype ready for Vercel deployment.</p>
       </footer>
     </main>
