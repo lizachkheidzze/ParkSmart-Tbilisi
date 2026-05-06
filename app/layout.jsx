@@ -1,4 +1,5 @@
 import './globals.css';
+import '@maptiler/sdk/dist/maptiler-sdk.css';
 
 export const metadata = {
   title: 'ParkSmart Tbilisi',
