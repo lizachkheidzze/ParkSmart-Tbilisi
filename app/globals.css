@@ -424,3 +424,35 @@ button {
     flex-direction: column;
   }
 }
+.realMap {
+  width: 100%;
+  height: 560px;
+  border-radius: 34px;
+  overflow: hidden;
+}
+
+.realMapMarker {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  border: 3px solid white;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  cursor: pointer;
+}
+
+.realMapMarker.green {
+  background: #22c55e;
+}
+
+.realMapMarker.red {
+  background: #ef4444;
+}
+
+.realMapMarker span {
+  font-size: 14px;
+}
