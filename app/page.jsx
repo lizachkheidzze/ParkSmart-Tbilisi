@@ -1,3 +1,4 @@
+import ParkingMap from './ParkingMap';
 'use client';
 
 const parkingZones = [
@@ -109,23 +110,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <section id="map" className="mapCard" aria-label="Parking map mockup">
-          <div className="mapGrid"></div>
-
-          <div className="pin pinGreen">A Zone · 14 free</div>
-          <div className="pin pinRed">B Zone · 4 free</div>
-          <div className="pin pinBlue">Mall · 72 free</div>
-          <div className="pin pinYellow">Private · 38 free</div>
-
-          <div className="mapPanel">
-            <div>
-              <h2>A Zone - Rustaveli</h2>
-              <p>Estimated availability — may not be fully accurate.</p>
-            </div>
-            <button onClick={() => openNavigation('Rustaveli Avenue, Tbilisi')}>Navigate</button>
-          </div>
-        </section>
-      </section>
+       <section id="map" className="mapCard" aria-label="Real Tbilisi parking map">
+  <ParkingMap />
+</section>
 
       <section className="warning">
         <strong>Important:</strong> Availability in City Hall zones is estimated and may not be fully accurate because not every driver registers their parking.
